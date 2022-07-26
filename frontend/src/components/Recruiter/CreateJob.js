@@ -42,7 +42,7 @@ class CreateJob extends Component {
 
     componentDidMount() {
         const { user } = this.props.auth;
-        axios.get('http://localhost:4001/user/'+ user.id)
+        axios.get('https://project-planet.herokuapp.com/user/'+ user.id)
              .then(response => {
                  this.setState({userdetails: response.data});
              })
@@ -141,7 +141,7 @@ class CreateJob extends Component {
         const isValid = this.validate();
         if (isValid) {
             axios
-                .post('http://localhost:4001/job/add_job', newJob)
+                .post('https://project-planet.herokuapp.com/job/add_job', newJob)
                 .then(response => {
                     console.log(newJob);
                     alert("Job added successfully!");

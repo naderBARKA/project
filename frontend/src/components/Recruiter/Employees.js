@@ -52,28 +52,28 @@ class Employees extends Component {
 
     componentDidMount() {
         const { user } = this.props.auth;
-        axios.get('http://localhost:4001/user/'+ user.id)
+        axios.get('https://project-planet.herokuapp.com/user/'+ user.id)
             .then(response => {
                 this.setState({userdetails: response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/job/get_jobs')
+        axios.get('https://project-planet.herokuapp.com/job/get_jobs')
             .then(response => {
                 this.setState({jobs: response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/user/')
+        axios.get('https://project-planet.herokuapp.com/user/')
             .then(response => {
                 this.setState({users: response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/application/get_applications')
+        axios.get('https://project-planet.herokuapp.com/application/get_applications')
             .then(response => {
                 this.setState({applications: response.data});
             })
@@ -289,7 +289,7 @@ class Employees extends Component {
         };
 
         axios
-            .put('http://localhost:4001/user/edit_profile/' + applicant._id, editApplicant)
+            .put('https://project-planet.herokuapp.com/user/edit_profile/' + applicant._id, editApplicant)
             .then(response => {
                 console.log(editApplicant);
                 alert("Applicant rated successfully!");
@@ -300,7 +300,7 @@ class Employees extends Component {
             })
 
         axios
-            .put('http://localhost:4001/application/edit_application/' + application._id, editApplication)
+            .put('https://project-planet.herokuapp.com/application/edit_application/' + application._id, editApplication)
             .then(response => {
                 console.log(editApplication);
             })

@@ -22,7 +22,7 @@ class Dashboard extends Component {
 
     componentDidMount() {
         const { user } = this.props.auth;
-        axios.get('http://localhost:4001/user/'+ user.id)
+        axios.get('https://project-planet.herokuapp.com/user/'+ user.id)
              .then(response => {
                  this.setState({userdetails: response.data});
              })

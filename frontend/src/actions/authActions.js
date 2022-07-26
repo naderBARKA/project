@@ -11,7 +11,7 @@ import {
 // Register User
 export const registerUser = (userData, history) => dispatch => {
     axios
-        .post("http://localhost:4001/user/register", userData)
+        .post("https://project-planet.herokuapp.com/user/register", userData)
         .then(res => alert("User registered successfully! You can log in now. "),history.push("/register")) // re-direct to login on successful register
         .catch(err =>
             dispatch({
@@ -24,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
     axios
-    .post("http://localhost:4001/user/login", userData)
+    .post("https://project-planet.herokuapp.com/user/login", userData)
     .then(res => {
         // Save to localStorage
         // Set token to localStorage

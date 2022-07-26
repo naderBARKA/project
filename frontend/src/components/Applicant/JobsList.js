@@ -130,21 +130,21 @@ class JobsList extends Component {
     componentDidMount() {
         const { user } = this.props.auth;
         this.setState({ showform : false });
-        axios.get('http://localhost:4001/user/'+ user.id)
+        axios.get('https://project-planet.herokuapp.com/user/'+ user.id)
                 .then(response => {
                     this.setState({userdetails: response.data});
                 })
                 .catch(function(error) {
                     console.log(error);
                 })
-        axios.get('http://localhost:4001/job/get_jobs')
+        axios.get('https://project-planet.herokuapp.com/job/get_jobs')
             .then(response => {
                 this.setState({jobs: response.data, extraJobs:response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/application/get_applications')
+        axios.get('https://project-planet.herokuapp.com/application/get_applications')
             .then(response => {
                 this.setState({applications: response.data});
             })
@@ -324,7 +324,7 @@ class JobsList extends Component {
         if(num <= 250 && this.state.userdetails.numapp <= 10)
         {
             axios
-                .post('http://localhost:4001/application/add_application', newApplication)
+                .post('https://project-planet.herokuapp.com/application/add_application', newApplication)
                 .then(response => {
                     console.log(newApplication);
                     alert("Application sent successfully!");
@@ -334,7 +334,7 @@ class JobsList extends Component {
                     alert("Application could not be sent.");
                 })
             axios
-                .put('http://localhost:4001/job/edit_job/' + job._id, editJob)
+                .put('https://project-planet.herokuapp.com/job/edit_job/' + job._id, editJob)
                 .then(response => {
                     console.log(editJob);
                 })
@@ -342,7 +342,7 @@ class JobsList extends Component {
                     console.log(error);
                 })
             axios
-                .put('http://localhost:4001/user/edit_profile/' + user.id, editApplicant)
+                .put('https://project-planet.herokuapp.com/user/edit_profile/' + user.id, editApplicant)
                 .then(response => {
                     console.log(editApplicant);
                 })

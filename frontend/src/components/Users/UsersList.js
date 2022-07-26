@@ -22,7 +22,7 @@ class UsersList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4001/user')
+        axios.get('https://project-planet.herokuapp.com/user')
              .then(response => {
                  this.setState({users: response.data, sortedUsers:response.data});
              })

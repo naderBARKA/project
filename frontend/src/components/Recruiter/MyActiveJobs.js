@@ -51,28 +51,28 @@ class MyActiveJobs extends Component {
 
     componentDidMount() {
         const { user } = this.props.auth;
-        axios.get('http://localhost:4001/user/'+ user.id)
+        axios.get('https://project-planet.herokuapp.com/user/'+ user.id)
                 .then(response => {
                     this.setState({userdetails: response.data});
                 })
                 .catch(function(error) {
                     console.log(error);
                 })
-        axios.get('http://localhost:4001/job/get_jobs')
+        axios.get('https://project-planet.herokuapp.com/job/get_jobs')
             .then(response => {
                 this.setState({jobs: response.data, sortedJobs:response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/user/')
+        axios.get('https://project-planet.herokuapp.com/user/')
             .then(response => {
                 this.setState({users: response.data});
             })
             .catch(function(error) {
                 console.log(error);
             })
-        axios.get('http://localhost:4001/application/get_applications')
+        axios.get('https://project-planet.herokuapp.com/application/get_applications')
             .then(response => {
                 this.setState({applications: response.data});
             })
@@ -94,7 +94,7 @@ class MyActiveJobs extends Component {
         let applicationsArray = this.state.applications;
         let usersArray = this.state.users;
         axios
-            .delete('http://localhost:4001/job/del_job/' + id)
+            .delete('https://project-planet.herokuapp.com/job/del_job/' + id)
             .then(response => {
                 alert("Job deleted successfully.");
             })
@@ -109,7 +109,7 @@ class MyActiveJobs extends Component {
                     working: false
                 }
                 axios
-                    .put('http://localhost:4001/user/edit_profile/' + appli.applicantId, editEmployee)
+                    .put('https://project-planet.herokuapp.com/user/edit_profile/' + appli.applicantId, editEmployee)
                     .then(response => {
                         console.log(editEmployee);
                     })
@@ -135,7 +135,7 @@ class MyActiveJobs extends Component {
                 };
 
                 axios
-                    .put('http://localhost:4001/user/edit_profile/' + appli.applicantId, editApplicant)
+                    .put('https://project-planet.herokuapp.com/user/edit_profile/' + appli.applicantId, editApplicant)
                     .then(response => {
                         console.log(editApplicant);
                     })
@@ -148,7 +148,7 @@ class MyActiveJobs extends Component {
                 }
 
                 axios
-                    .put('http://localhost:4001/application/edit_application/' + appli._id, editAppli)
+                    .put('https://project-planet.herokuapp.com/application/edit_application/' + appli._id, editAppli)
                     .then(response => {
                         console.log(editAppli);
                     })
@@ -209,7 +209,7 @@ class MyActiveJobs extends Component {
             if(this.state.posmax)
                 this.state.jobs[ind].posmax = this.state.posmax;
             axios
-                .put('http://localhost:4001/job/edit_job/' + idToChange, this.state.jobs[ind])
+                .put('https://project-planet.herokuapp.com/job/edit_job/' + idToChange, this.state.jobs[ind])
                 .then(response => {
                     console.log(this.state.jobs[ind]);
                     this.setState({ editing: "" });
