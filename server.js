@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to MongoDB
 // To localhost
-mongoose.connect(DB_NAME, { useNewUrlParser: true });
+mongoose.connect(DB_NAME, { useNewUrlParser: true, useUnifiedTopology: true  });
 const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully !");
