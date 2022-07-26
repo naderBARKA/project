@@ -1,4 +1,5 @@
 const express = require('express');
+require("dotenv").config()
 
 // Middleware is a software that acts as an intermediary between 
 // two applications or services to facilitate their communication.
@@ -19,7 +20,7 @@ const passport = require("passport");
 
 const app = express();
 
-const PORT = 4001;
+const PORT = process.env.PORT || 4001;
 const DB_NAME = "mongodb+srv://naderBarka:naderBARKA@psyapp.3sicx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 // Passport middleware
